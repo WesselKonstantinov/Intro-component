@@ -83,6 +83,7 @@ select {
   --color-blue: hsl(248 32% 49%);
   --color-dark-blue: hsl(249 10% 26%);
   --color-grayish-blue: hsl(246 25% 77%);
+  --color-white: hsl(0 0% 100%);
   --font-family-primary: "Poppins", sans-serif;
   --font-weight-regular: 400;
   --font-weight-medium: 500;
@@ -94,4 +95,28 @@ select {
   --font-size-base: 1rem;
   --font-size-lg: 1.75rem;
   --font-size-xl: 3.125rem;
+}
+
+/* || Global styles */
+body {
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-white);
+  background-color: var(--color-red);
+  background-image: url("./images/bg-intro-mobile.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.sr-only {
+  position: absolute;
+  width: 0.0625rem;
+  height: 0.0625rem;
+  padding: 0;
+  margin: -0.0625rem;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }
