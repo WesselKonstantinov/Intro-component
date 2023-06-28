@@ -99,6 +99,8 @@ select {
 
 /* || Global styles */
 body {
+  display: grid;
+  place-content: center;
   font-family: var(--font-family-primary);
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-regular);
@@ -119,4 +121,11 @@ body {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border-width: 0;
+}
+
+/* || Hero styles */
+.hero {
+  margin-inline: 1.5rem;
+  display: grid;
+  gap: 4rem;
 }
