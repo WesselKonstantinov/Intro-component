@@ -127,7 +127,7 @@ body {
 
 /* || Hero styles */
 .hero {
-  max-width: 69.375rem;
+  max-width: 31.5rem;
   margin-inline: auto;
   display: grid;
   gap: 4rem;
@@ -184,6 +184,9 @@ body {
   font-size: var(--font-size-xs);
   font-weight: var(--font-weight-semibold);
   letter-spacing: 0.0179em;
+}
+
+.form__input::placeholder {
   text-transform: capitalize;
 }
 
@@ -222,4 +225,44 @@ body {
 
 .form__link:hover {
   text-decoration: underline;
+}
+
+@media (min-width: 65rem) {
+  body {
+    display: grid;
+    background-image: url("./images/bg-intro-desktop.png");
+  }
+
+  .hero {
+    max-width: 69.375rem;
+    align-content: center;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.85rem;
+  }
+
+  .hero__intro {
+    align-self: center;
+    text-align: left;
+  }
+
+  .hero__title {
+    font-size: var(--font-size-xl);
+    line-height: 1.1;
+  }
+
+  .hero__text {
+    margin-top: 2rem;
+  }
+
+  .form {
+    padding: 2.5rem;
+  }
+
+  .form > * + * {
+    margin-top: var(--flow-space, 1.25rem);
+  }
+
+  .form__input {
+    padding-inline: 2rem;
+  }
 }
