@@ -143,3 +143,17 @@ body {
 .hero__text {
   margin-top: 1rem;
 }
+
+.banner {
+  background-color: var(--color-blue);
+  border-radius: 0.625rem;
+  box-shadow: 0 0.5rem 0 0 rgb(0 0 0 / 0.15);
+  padding: 1.125rem 3rem;
+}
+
+.banner__text {
+  font-size: var(--font-size-s);
+  font-weight: var(--font-weight-regular);
+  letter-spacing: 0.0178em;
+  line-height: 1.733;
+}
