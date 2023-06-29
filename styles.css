@@ -80,10 +80,12 @@ select {
 :root {
   --color-red: hsl(0 100% 74%);
   --color-green: hsl(154 59% 51%);
+  --color-light-green: hsl(154 65% 68%);
   --color-blue: hsl(248 32% 49%);
   --color-dark-blue: hsl(249 10% 26%);
   --color-grayish-blue: hsl(246 25% 77%);
   --color-white: hsl(0 0% 100%);
+  --color-gray: hsl(0 0% 87%);
   --font-family-primary: "Poppins", sans-serif;
   --font-weight-regular: 400;
   --font-weight-medium: 500;
@@ -99,8 +101,7 @@ select {
 
 /* || Global styles */
 body {
-  display: grid;
-  place-content: center;
+  padding: 5.5rem 1.5rem 4.25rem;
   font-family: var(--font-family-primary);
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-medium);
@@ -127,7 +128,7 @@ body {
 /* || Hero styles */
 .hero {
   max-width: 69.375rem;
-  margin-inline: 1.5rem;
+  margin-inline: auto;
   display: grid;
   gap: 4rem;
   text-align: center;
@@ -145,10 +146,10 @@ body {
 }
 
 .banner {
+  padding: 1.125rem 3rem;
   background-color: var(--color-blue);
   border-radius: 0.625rem;
   box-shadow: 0 0.5rem 0 0 rgb(0 0 0 / 0.15);
-  padding: 1.125rem 3rem;
 }
 
 .banner__text {
@@ -156,4 +157,69 @@ body {
   font-weight: var(--font-weight-regular);
   letter-spacing: 0.0178em;
   line-height: 1.733;
+}
+
+.banner__text-highlight {
+  font-weight: var(--font-weight-bold);
+}
+
+.form {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  background-color: var(--color-white);
+  border-radius: 0.625rem;
+  box-shadow: 0 0.5rem 0 0 rgb(0 0 0 / 0.15);
+}
+
+.form > * + * {
+  margin-top: var(--flow-space, 1rem);
+}
+
+.form__input {
+  width: 100%;
+  padding: 0.9375rem 1.2125rem;
+  border-radius: 0.3125rem;
+  border: 1px solid var(--color-gray);
+  color: var(--color-dark-blue);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.0179em;
+  text-transform: capitalize;
+}
+
+.form__submit {
+  width: 100%;
+  padding: 0.9375rem;
+  border: none;
+  border-radius: 0.3125rem;
+  background-color: var(--color-green);
+  box-shadow: 0 -0.25rem 0 0 rgb(0 0 0 / 0.09) inset;
+  color: var(--color-white);
+  font-size: var(--font-size-s);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.066em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.2s ease-out 0s;
+}
+
+.form__submit:hover {
+  background-color: var(--color-light-green);
+}
+
+.form__terms {
+  --flow-space: 0.5rem;
+  color: var(--color-grayish-blue);
+  font-size: var(--font-size-2xs);
+  line-height: 1.909;
+}
+
+.form__link {
+  text-decoration: none;
+  color: var(--color-red);
+  font-weight: var(--font-weight-semibold);
+}
+
+.form__link:hover {
+  text-decoration: underline;
 }
