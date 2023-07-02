@@ -145,6 +145,7 @@ body {
   margin-top: 1rem;
 }
 
+/* || Banner styles */
 .banner {
   padding: 1.125rem 3rem;
   background-color: var(--color-blue);
@@ -163,6 +164,7 @@ body {
   font-weight: var(--font-weight-bold);
 }
 
+/* || Form styles */
 .form {
   margin-top: 1.5rem;
   padding: 1.5rem;
@@ -177,7 +179,7 @@ body {
 
 .form__input {
   width: 100%;
-  padding: 0.9375rem 1.2125rem;
+  padding: 0.9375rem 1rem;
   border-radius: 0.3125rem;
   border: 1px solid var(--color-gray);
   color: var(--color-dark-blue);
@@ -193,6 +195,24 @@ body {
 
 .form__input::placeholder {
   text-transform: capitalize;
+}
+
+.form__input--error {
+  border: 2px solid var(--color-red);
+  color: var(--color-red);
+  background-image: url("./images/icon-error.svg");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+}
+
+.form__error {
+  text-align: right;
+}
+
+.form__error-message {
+  color: var(--color-red);
+  font-size: var(--font-size-2xs);
+  font-style: italic;
 }
 
 .form__submit {
@@ -232,6 +252,7 @@ body {
   text-decoration: underline;
 }
 
+/* || Media queries  */
 @media (min-width: 65rem) {
   body {
     display: grid;
