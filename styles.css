@@ -181,9 +181,14 @@ body {
   border-radius: 0.3125rem;
   border: 1px solid var(--color-gray);
   color: var(--color-dark-blue);
+  caret-color: var(--color-blue);
   font-size: var(--font-size-xs);
   font-weight: var(--font-weight-semibold);
   letter-spacing: 0.0179em;
+}
+
+.form__input:focus {
+  outline: 1px solid var(--color-blue);
 }
 
 .form__input::placeholder {
