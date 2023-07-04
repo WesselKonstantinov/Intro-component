@@ -197,7 +197,7 @@ body {
   text-transform: capitalize;
 }
 
-.form__input--error {
+[aria-invalid="true"] {
   border: 2px solid var(--color-red);
   color: var(--color-red);
   background-image: url("./images/icon-error.svg");
