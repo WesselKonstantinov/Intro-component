@@ -16,6 +16,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
+    <script defer src="./script.js"></script>
     <title>Frontend Mentor | Intro component with sign up form</title>
   </head>
   <body>
@@ -45,13 +46,12 @@
               autocomplete="given-name"
               placeholder="First name"
               aria-describedby="first-name-error"
+              aria-invalid="false"
               required
-              class="form__input js-first-name-field form__input--error"
+              class="form__input js-first-name-field"
             />
             <div class="form__error" id="first-name-error" aria-live="polite">
-              <small class="form__error-message">
-                First Name cannot be empty
-              </small>
+              <small class="form__error-message js-form-error-message"></small>
             </div>
           </div>
           <div class="form__group">
@@ -63,13 +63,12 @@
               autocomplete="family-name"
               placeholder="Last name"
               aria-describedby="last-name-error"
+              aria-invalid="false"
               required
               class="form__input js-last-name-field"
             />
             <div class="form__error" id="last-name-error" aria-live="polite">
-              <small class="form__error-message">
-                Last Name cannot be empty
-              </small>
+              <small class="form__error-message js-form-error-message"></small>
             </div>
           </div>
           <div class="form__group">
@@ -81,13 +80,12 @@
               autocomplete="email"
               placeholder="Email address"
               aria-describedby="email-error"
+              aria-invalid="false"
               required
               class="form__input js-email-field"
             />
             <div class="form__error" id="email-error" aria-live="polite">
-              <small class="form__error-message">
-                Looks like this is not an email
-              </small>
+              <small class="form__error-message js-form-error-message"></small>
             </div>
           </div>
           <div class="form__group">
@@ -99,13 +97,12 @@
               autocomplete="new-password"
               placeholder="Password"
               aria-describedby="password-error"
+              aria-invalid="false"
               required
               class="form__input js-password-field"
             />
             <div class="form__error" id="password-error" aria-live="polite">
-              <small class="form__error-message">
-                Password cannot be empty
-              </small>
+              <small class="form__error-message js-form-error-message"></small>
             </div>
           </div>
           <button
