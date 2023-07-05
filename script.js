@@ -1,68 +1,41 @@
 const form = document.querySelector(".js-form");
 const fields = document.querySelectorAll(".js-input");
 
-const setStatus = (field, message = "") => {
+const setStatus = (field, errorMessage) => {
   const formErrorMessage = field.parentElement.querySelector(
     ".js-form-error-message"
   );
 
-  if (message) {
-    formErrorMessage.innerText = message;
+  if (errorMessage) {
+    formErrorMessage.innerText = errorMessage;
     field.setAttribute("aria-invalid", "true");
   } else {
     formErrorMessage.innerText = "";
-    field.removeAttribute("aria-invalid");
+    field.setAttribute("aria-invalid", "false");
   }
 };
 
 const validate = (field) => {
-  const isEmpty = field.value.trim() === "";
+  const isEmpty = field.value.trim().length === 0;
+  const emailRegex = /\S+@\S+\.\S+/;
+  const passwordRegex =
+    /^(?!.*\s)(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[~`!@#$%^&*()--+={}\[\]|\\:;"'<>,.?/_₹]).{8,16}$/;
 
-  if (field.type === "text") {
-    if (isEmpty) {
-      setStatus(
-        field,
-        `${field.previousElementSibling.innerText} cannot be empty`
-      );
-    } else {
-      setStatus(field);
-    }
-  } else if (field.type === "email") {
-    const emailRegex = /\S+@\S+\.\S+/;
-
-    if (isEmpty) {
-      setStatus(
-        field,
-        `${field.previousElementSibling.innerText} cannot be empty`
-      );
-    } else if (!emailRegex.test(field.value)) {
-      setStatus(field, "Looks like this is not an email");
-    } else {
-      setStatus(field);
-    }
-  } else if (field.type === "password") {
-    const passwordRegex =
-      /^(?!.*\s)(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[~`!@#$%^&*()--+={}\[\]|\\:;"'<>,.?/_₹]).{8,16}$/;
-
-    if (field.value.length === 0) {
-      setStatus(
-        field,
-        `${field.previousElementSibling.innerText} cannot be empty`
-      );
-    } else if (!passwordRegex.test(field.value)) {
-      setStatus(
-        field,
-        `The Password must not contain any whitespace.
-        The Password must contain at least one uppercase character.
-        The Password must contain at least one lowercase character.
-        The Password must contain at least one digit.
-        The Password must have at least one special symbol.
-        The Password must be 8-16 characters long.`
-      );
-    } else {
-      setStatus(field);
-    }
+  let errorMessage = "";
+  if (isEmpty) {
+    errorMessage = `${field.previousElementSibling.innerText} cannot be empty`;
+  } else if (field.type === "email" && !emailRegex.test(field.value)) {
+    errorMessage = "Looks like this is not an email";
+  } else if (field.type === "password" && !passwordRegex.test(field.value)) {
+    errorMessage = `The Password must not contain any whitespace.
+                    The Password must contain at least one uppercase character.
+                    The Password must contain at least one lowercase character.
+                    The Password must contain at least one digit.
+                    The Password must have at least one special symbol.
+                    The Password must be 8-16 characters long.`;
   }
+
+  setStatus(field, errorMessage);
 };
 
 fields.forEach((field) => {
