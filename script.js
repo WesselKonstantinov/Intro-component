@@ -2,15 +2,13 @@ const form = document.querySelector(".js-form");
 const fields = document.querySelectorAll(".js-input");
 
 const setStatus = (field, errorMessage) => {
-  const formErrorMessage = field.parentElement.querySelector(
-    ".js-form-error-message"
-  );
+  const formError = field.parentElement.querySelector(".js-error");
 
   if (errorMessage) {
-    formErrorMessage.innerText = errorMessage;
+    formError.innerHTML = `<p class="form__error-message">${errorMessage}</p>`;
     field.setAttribute("aria-invalid", "true");
   } else {
-    formErrorMessage.innerText = "";
+    formError.innerHTML = "";
     field.setAttribute("aria-invalid", "false");
   }
 };
