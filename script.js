@@ -1,4 +1,5 @@
 const form = document.querySelector(".js-form");
+const thanksCard = document.querySelector(".js-thanks");
 const fields = document.querySelectorAll(".js-input");
 
 const setStatus = (field, errorMessage) => {
@@ -108,6 +109,7 @@ form.addEventListener("submit", (e) => {
   ) {
     form.querySelector("[aria-invalid='true']").focus();
   } else {
-    console.log("Successfully submitted");
+    form.hidden = true;
+    thanksCard.hidden = false;
   }
 });
