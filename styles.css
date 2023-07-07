@@ -247,6 +247,11 @@ body {
   background-color: var(--color-light-green);
 }
 
+.form__submit:focus-visible {
+  outline: 0.3rem solid var(--color-light-green);
+  outline-offset: 0.3rem;
+}
+
 .form__terms {
   --flow-space: 0.5rem;
   color: var(--color-grayish-blue);
@@ -262,6 +267,10 @@ body {
 
 .form__link:hover {
   text-decoration: underline;
+}
+
+.form__link:focus-visible {
+  outline: 0.2rem solid currentColor;
 }
 
 /* || Thanks card styles */
