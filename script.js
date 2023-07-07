@@ -2,7 +2,7 @@ const form = document.querySelector(".js-form");
 const thanksCard = document.querySelector(".js-thanks");
 const fields = document.querySelectorAll(".js-input");
 
-const setStatus = (field, errorMessage) => {
+const setInputStatus = (field, errorMessage) => {
   const formError = field.parentElement.querySelector(".js-error");
 
   if (errorMessage) {
@@ -75,7 +75,7 @@ const getPasswordStrengthFeedback = (password) => {
   return passwordStrengthFeedback;
 };
 
-const validate = (field) => {
+const validateInput = (field) => {
   const isEmpty =
     field.type === "password"
       ? field.value.length === 0 // Set up a separate check for whitespace characters in passwords
@@ -91,17 +91,17 @@ const validate = (field) => {
     errorMessage = getPasswordStrengthFeedback(field.value);
   }
 
-  setStatus(field, errorMessage);
+  setInputStatus(field, errorMessage);
 };
 
 fields.forEach((field) => {
-  field.addEventListener("input", (e) => validate(e.target));
-  field.addEventListener("blur", (e) => validate(e.target));
+  field.addEventListener("input", (e) => validateInput(e.target));
+  field.addEventListener("blur", (e) => validateInput(e.target));
 });
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-  fields.forEach((field) => validate(field));
+  fields.forEach((field) => validateInput(field));
   if (
     Array.from(fields).some(
       (field) => field.getAttribute("aria-invalid") === "true"
