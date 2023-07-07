@@ -25,8 +25,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [https://www.frontendmentor.io/solutions/intro-component-with-signup-form-css-grid-and-vanilla-js-kn4tvU3-lS](https://www.frontendmentor.io/solutions/intro-component-with-signup-form-css-grid-and-vanilla-js-kn4tvU3-lS)
+- Live Site URL: [https://wesselkonstantinov.github.io/Intro-component/](https://wesselkonstantinov.github.io/Intro-component/)
 
 ## My process
 
