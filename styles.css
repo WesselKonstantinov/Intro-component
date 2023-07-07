@@ -36,7 +36,7 @@ html:focus-within {
 body {
   min-height: 100vh;
   text-rendering: optimizeSpeed;
-  line-height: 1.54;
+  line-height: 1.5;
 }
 
 /* A elements that don't have a class get default styles */
@@ -95,8 +95,9 @@ select {
   --font-size-xs: 0.875rem;
   --font-size-s: 0.9375rem;
   --font-size-base: 1rem;
-  --font-size-lg: 1.75rem;
-  --font-size-xl: 3.125rem;
+  --font-size-lg: 1.5rem;
+  --font-size-xl: 1.75rem;
+  --font-size-2xl: 3.125rem;
 }
 
 /* || Global styles */
@@ -134,8 +135,12 @@ body {
   text-align: center;
 }
 
+.hero__main > * + * {
+  margin-top: 1.5rem;
+}
+
 .hero__title {
-  font-size: var(--font-size-lg);
+  font-size: var(--font-size-xl);
   font-weight: var(--font-weight-bold);
   line-height: 1.286;
   letter-spacing: -0.01043em;
@@ -166,7 +171,6 @@ body {
 
 /* || Form styles */
 .form {
-  margin-top: 1.5rem;
   padding: 1.5rem;
   background-color: var(--color-white);
   border-radius: 0.625rem;
@@ -260,6 +264,27 @@ body {
   text-decoration: underline;
 }
 
+/* || Thanks card styles */
+.thanks-card {
+  padding: 1.5rem;
+  background-color: var(--color-white);
+  border-radius: 0.625rem;
+  box-shadow: 0 0.5rem 0 0 rgb(0 0 0 / 0.15);
+  text-align: left;
+  color: var(--color-dark-blue);
+}
+
+.thanks-card__title {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  line-height: 1.286;
+  letter-spacing: -0.01043em;
+}
+
+.thanks-card__text {
+  margin-top: 1rem;
+}
+
 /* || Media queries  */
 @media (min-width: 65rem) {
   body {
@@ -280,7 +305,7 @@ body {
   }
 
   .hero__title {
-    font-size: var(--font-size-xl);
+    font-size: var(--font-size-2xl);
     line-height: 1.1;
   }
 
@@ -298,5 +323,9 @@ body {
 
   .form__input {
     padding-inline: 2rem;
+  }
+
+  .thanks-card__title {
+    font-size: var(--font-size-xl);
   }
 }
