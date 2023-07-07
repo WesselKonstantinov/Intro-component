@@ -34,41 +34,41 @@ const setStatus = (field, errorMessage) => {
   }
 };
 
-const getPasswordStrengthFeedback = (value) => {
+const getPasswordStrengthFeedback = (password) => {
   let passwordStrengthFeedback = "";
 
   const containsWhitespace = /^(?=.*\s)/;
-  if (containsWhitespace.test(value)) {
+  if (containsWhitespace.test(password)) {
     passwordStrengthFeedback +=
       "The password must not contain any whitespace.\n";
   }
 
   const containsUppercase = /^(?=.*[A-Z])/;
-  if (!containsUppercase.test(value)) {
+  if (!containsUppercase.test(password)) {
     passwordStrengthFeedback +=
       "The password must contain at least one uppercase character.\n";
   }
 
   const containsLowercase = /^(?=.*[a-z])/;
-  if (!containsLowercase.test(value)) {
+  if (!containsLowercase.test(password)) {
     passwordStrengthFeedback +=
       "The password must contain at least one lowercase character.\n";
   }
 
   const containsNumber = /^(?=.*[0-9])/;
-  if (!containsNumber.test(value)) {
+  if (!containsNumber.test(password)) {
     passwordStrengthFeedback +=
       "The password must contain at least one digit.\n";
   }
 
   const containsSymbol = /^(?=.*[~`!@#$%^&*()--+={}[\]|\\:;"'<>,.?/_₹])/;
-  if (!containsSymbol.test(value)) {
+  if (!containsSymbol.test(password)) {
     passwordStrengthFeedback +=
       "The password must have at least one special symbol.\n";
   }
 
   const hasValidLength = /^.{8,16}$/;
-  if (!hasValidLength.test(value)) {
+  if (!hasValidLength.test(password)) {
     passwordStrengthFeedback += "The password must be 8-16 characters long.\n";
   }
 
@@ -82,7 +82,7 @@ const validate = (field) => {
       : field.value.trim().length === 0;
   const emailRegex = /\S+@\S+\.\S+/;
 
-  let errorMessage = "";
+  let errorMessage;
   if (isEmpty) {
     errorMessage = `${field.previousElementSibling.innerText} cannot be empty`;
   } else if (field.type === "email" && !emailRegex.test(field.value)) {
