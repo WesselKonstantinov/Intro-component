@@ -95,13 +95,30 @@ const validateInput = (field) => {
 };
 
 fields.forEach((field) => {
-  field.addEventListener("input", (e) => validateInput(e.target));
-  field.addEventListener("blur", (e) => validateInput(e.target));
+  field.addEventListener("change", (e) => {
+    e.target.setAttribute("data-touched", "true");
+  });
+
+  field.addEventListener("input", (e) => {
+    if (e.target.getAttribute("data-touched") !== "true") {
+      return;
+    }
+    validateInput(e.target);
+  });
+  field.addEventListener("blur", (e) => {
+    if (e.target.getAttribute("data-touched") !== "true") {
+      return;
+    }
+    validateInput(e.target);
+  });
 });
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-  fields.forEach((field) => validateInput(field));
+  fields.forEach((field) => {
+    field.setAttribute("data-touched", "true");
+    validateInput(field);
+  });
   if (
     Array.from(fields).some(
       (field) => field.getAttribute("aria-invalid") === "true"
